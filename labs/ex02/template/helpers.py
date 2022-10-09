@@ -16,17 +16,17 @@ def load_data(sub_sample=True, add_outlier=False):
     # Convert to metric system
     height *= 0.025
     weight *= 0.454
-
+    
     # sub-sample
     if sub_sample:
         height = height[::50]
         weight = weight[::50]
-
+    
     if add_outlier:
         # outlier experiment
         height = np.concatenate([height, [1.1, 1.2]])
         weight = np.concatenate([weight, [51.5/0.454, 55.3/0.454]])
-
+    
     return height, weight, gender
 
 
@@ -59,7 +59,7 @@ def batch_iter(y, tx, batch_size, num_batches=1, shuffle=True):
         <DO-SOMETHING>
     """
     data_size = len(y)
-
+    
     if shuffle:
         shuffle_indices = np.random.permutation(np.arange(data_size))
         shuffled_y = y[shuffle_indices]
