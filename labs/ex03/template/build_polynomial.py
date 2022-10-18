@@ -19,6 +19,6 @@ def build_poly(x, degree):
     """
     
     poly = np.broadcast_to(x, (degree+1, x.shape[0])).T 
-    poly = poly ** np.arange(degree+1)
+    poly = np.power(poly, np.arange(degree+1, dtype=float))
     
     return poly
